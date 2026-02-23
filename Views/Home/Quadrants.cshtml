@@ -1,0 +1,91 @@
+@model IEnumerable<Mission08_Team0211.Models.Task>
+
+<h1 class="mb-4">Stephen Covey Time Management Matrix</h1>
+
+<div class="row">
+
+    <!-- Quadrant 1 -->
+    <div class="col-md-6 mb-3">
+        <h4>Quadrant 1 — Important / Urgent</h4>
+
+        @foreach (var t in Model.Where(x => !x.Completed && x.Quadrant == 1))
+        {
+            <div class="border p-2 mb-2">
+                <strong>@t.Task</strong><br />
+                Due: @t.DueDate?.ToShortDateString()
+
+                <div class="mt-2">
+                    <a asp-action="Edit" asp-route-id="@t.TaskId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@t.TaskId">Delete</a> |
+                    <form asp-action="Complete" asp-route-id="@t.TaskId" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-success">Complete</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Quadrant 2 -->
+    <div class="col-md-6 mb-3">
+        <h4>Quadrant 2 — Important / Not Urgent</h4>
+
+        @foreach (var t in Model.Where(x => !x.Completed && x.Quadrant == 2))
+        {
+            <div class="border p-2 mb-2">
+                <strong>@t.Task</strong><br />
+                Due: @t.DueDate?.ToShortDateString()
+
+                <div class="mt-2">
+                    <a asp-action="Edit" asp-route-id="@t.TaskId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@t.TaskId">Delete</a> |
+                    <form asp-action="Complete" asp-route-id="@t.TaskId" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-success">Complete</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Quadrant 3 -->
+    <div class="col-md-6 mb-3">
+        <h4>Quadrant 3 — Not Important / Urgent</h4>
+
+        @foreach (var t in Model.Where(x => !x.Completed && x.Quadrant == 3))
+        {
+            <div class="border p-2 mb-2">
+                <strong>@t.Task</strong><br />
+                Due: @t.DueDate?.ToShortDateString()
+
+                <div class="mt-2">
+                    <a asp-action="Edit" asp-route-id="@t.TaskId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@t.TaskId">Delete</a> |
+                    <form asp-action="Complete" asp-route-id="@t.TaskId" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-success">Complete</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Quadrant 4 -->
+    <div class="col-md-6 mb-3">
+        <h4>Quadrant 4 — Not Important / Not Urgent</h4>
+
+        @foreach (var t in Model.Where(x => !x.Completed && x.Quadrant == 4))
+        {
+            <div class="border p-2 mb-2">
+                <strong>@t.Task</strong><br />
+                Due: @t.DueDate?.ToShortDateString()
+
+                <div class="mt-2">
+                    <a asp-action="Edit" asp-route-id="@t.TaskId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@t.TaskId">Delete</a> |
+                    <form asp-action="Complete" asp-route-id="@t.TaskId" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-success">Complete</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
