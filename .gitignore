@@ -1,0 +1,55 @@
+# Build folders
+bin/
+obj/
+
+# Publish output / CI artifacts
+publish/
+artifacts/
+*.nupkg
+*.snupkg
+*.symbols.nupkg
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDEs
+.idea/
+.vscode/
+
+# NuGet / packages
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Test results / coverage
+TestResults/
+*.trx
+coverage/
+*.coverage
+*.coveragexml
+
+# Logs
+*.log
+
+# SQLite / Local DB files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Local config / secrets
+secrets.json
+.env
+appsettings.*.Local
+
+# Node / client artifacts (optional)
+node_modules/
+wwwroot/lib/   # remove this line if you commit libman/npm files
+
+# OS files
+.DS_Store
+Thumbs.db
