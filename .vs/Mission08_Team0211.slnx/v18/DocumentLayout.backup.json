@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\levis\\OneDrive\\Desktop\\IS 413 Applications\\Mission #7 Assignment\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6614C8C5-9C43-4E6E-7059-8E84A96A04A3}|Mission08_Team0211.csproj|c:\\users\\levis\\onedrive\\desktop\\is 413 applications\\mission #7 assignment\\.gitignore||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6614C8C5-9C43-4E6E-7059-8E84A96A04A3}|Mission08_Team0211.csproj|solutionrelative:.gitignore||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6614C8C5-9C43-4E6E-7059-8E84A96A04A3}|Mission08_Team0211.csproj|c:\\users\\levis\\onedrive\\desktop\\is 413 applications\\mission #7 assignment\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6614C8C5-9C43-4E6E-7059-8E84A96A04A3}|Mission08_Team0211.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -21,8 +25,25 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\levis\\OneDrive\\Desktop\\IS 413 Applications\\Mission #7 Assignment\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\levis\\OneDrive\\Desktop\\IS 413 Applications\\Mission #7 Assignment\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-26T16:27:18.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AddTask.cshtml",
               "DocumentMoniker": "C:\\Users\\levis\\OneDrive\\Desktop\\IS 413 Applications\\Mission #7 Assignment\\Views\\Home\\AddTask.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\AddTask.cshtml",
@@ -30,12 +51,11 @@
               "RelativeToolTip": "Views\\Home\\AddTask.cshtml",
               "ViewState": "AgIAACIAAAAAAAAAAAAgwCEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-26T02:44:40.652Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-26T02:44:40.652Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\levis\\OneDrive\\Desktop\\IS 413 Applications\\Mission #7 Assignment\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -45,10 +65,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-02-26T02:35:41.437Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
