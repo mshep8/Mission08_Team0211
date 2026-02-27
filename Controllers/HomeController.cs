@@ -95,22 +95,20 @@ public class HomeController : Controller
         return RedirectToAction("Quadrants");
     }
 
-    // Delete confirmation (GET)
-    [HttpGet]
+    // Delete (POST) - no confirmation view required
+    [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Delete(int id)
     {
         var recordToDelete = _repo.ToDoTasks
-            .Include(t => t.Category)
-            .Single(x => x.ToDoTaskId == id);
+            .SingleOrDefault(x => x.ToDoTaskId == id);
 
-        return View(recordToDelete);
-    }
+        if (recordToDelete == null)
+        {
+            return RedirectToAction("Quadrants");
+        }
 
-    // Delete (POST)
-    [HttpPost]
-    public IActionResult Delete(ToDoTask task)
-    {
-        _repo.DeleteTask(task);
+        _repo.DeleteTask(recordToDelete);
 
         return RedirectToAction("Quadrants");
     }
@@ -126,4 +124,5 @@ public class HomeController : Controller
 
         return RedirectToAction("Quadrants");
     }
+
 }

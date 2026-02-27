@@ -53,3 +53,5 @@ wwwroot/lib/   # remove this line if you commit libman/npm files
 # OS files
 .DS_Store
 Thumbs.db
+
+.env

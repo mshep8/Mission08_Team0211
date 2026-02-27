@@ -20,8 +20,12 @@
 
                         <div class="mt-2">
                             <a asp-action="Edit" asp-route-id="@t.ToDoTaskId" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@t.ToDoTaskId" class="btn btn-sm btn-outline-danger">Delete</a>
-                            <form asp-action="Complete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline;">
+                            <form asp-action="Delete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this task?');">
+                                    Delete
+                                </button>
+                            </form>                            <form asp-action="Complete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline;">
                                 <button type="submit" class="btn btn-sm btn-success">Complete</button>
                             </form>
                         </div>
@@ -47,8 +51,12 @@
 
                         <div class="mt-2">
                             <a asp-action="Edit" asp-route-id="@t.ToDoTaskId" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@t.ToDoTaskId" class="btn btn-sm btn-outline-danger">Delete</a>
-                            <form asp-action="Complete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline;">
+                            <form asp-action="Delete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this task?');">
+                                    Delete
+                                </button>
+                            </form>                            <form asp-action="Complete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline;">
                                 <button type="submit" class="btn btn-sm btn-success">Complete</button>
                             </form>
                         </div>
@@ -74,8 +82,12 @@
 
                         <div class="mt-2">
                             <a asp-action="Edit" asp-route-id="@t.ToDoTaskId" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@t.ToDoTaskId" class="btn btn-sm btn-outline-danger">Delete</a>
-                            <form asp-action="Complete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline;">
+                            <form asp-action="Delete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this task?');">
+                                    Delete
+                                </button>
+                            </form>                            <form asp-action="Complete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline;">
                                 <button type="submit" class="btn btn-sm btn-success">Complete</button>
                             </form>
                         </div>
@@ -101,8 +113,12 @@
 
                         <div class="mt-2">
                             <a asp-action="Edit" asp-route-id="@t.ToDoTaskId" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@t.ToDoTaskId" class="btn btn-sm btn-outline-danger">Delete</a>
-                            <form asp-action="Complete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline;">
+                            <form asp-action="Delete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this task?');">
+                                    Delete
+                                </button>
+                            </form>                            <form asp-action="Complete" asp-route-id="@t.ToDoTaskId" method="post" style="display:inline;">
                                 <button type="submit" class="btn btn-sm btn-success">Complete</button>
                             </form>
                         </div>
