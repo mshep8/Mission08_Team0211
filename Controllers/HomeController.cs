@@ -6,11 +6,11 @@ namespace Mission08_Team0211.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly QuadrantsContext _context;
+    private readonly IQuadrantsRepository _repo;
 
-    public HomeController(QuadrantsContext temp)
+    public HomeController(IQuadrantsRepository repo)
     {
-        _context = temp;
+        _repo = repo;
     }
 
     public IActionResult Index()
@@ -21,7 +21,7 @@ public class HomeController : Controller
     // STEP 3: Quadrants View (show ONLY incomplete tasks)
     public IActionResult Quadrants()
     {
-        var tasks = _context.ToDoTasks
+        var tasks = _repo.ToDoTasks
             .Include(t => t.Category)
             .Where(t => t.Completed == false)
             .OrderBy(t => t.Quadrant)
@@ -35,7 +35,7 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult AddTask()
     {
-        ViewBag.Categories = _context.Categories
+        ViewBag.Categories = _repo.Categories
             .OrderBy(c => c.CategoryName)
             .ToList();
 
@@ -46,32 +46,31 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult AddTask(ToDoTask response)
     {
-        ViewBag.Categories = _context.Categories
-            .OrderBy(c => c.CategoryName)
-            .ToList();
-
         if (!ModelState.IsValid)
         {
+            ViewBag.Categories = _repo.Categories
+                .OrderBy(c => c.CategoryName)
+                .ToList();
+
             return View(response);
         }
 
         // Default to not completed when creating
         response.Completed = false;
 
-        _context.ToDoTasks.Add(response);
-        _context.SaveChanges();
+        _repo.AddTask(response);
 
         return RedirectToAction("Quadrants");
     }
 
-    // Edit (GET) - reuse AddTask view like DateMe
+    // Edit (GET) - reuse AddTask view
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        var recordToEdit = _context.ToDoTasks
+        var recordToEdit = _repo.ToDoTasks
             .Single(x => x.ToDoTaskId == id);
 
-        ViewBag.Categories = _context.Categories
+        ViewBag.Categories = _repo.Categories
             .OrderBy(c => c.CategoryName)
             .ToList();
 
@@ -84,15 +83,14 @@ public class HomeController : Controller
     {
         if (!ModelState.IsValid)
         {
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.Categories
                 .OrderBy(c => c.CategoryName)
                 .ToList();
 
             return View("AddTask", updatedInfo);
         }
 
-        _context.Update(updatedInfo);
-        _context.SaveChanges();
+        _repo.UpdateTask(updatedInfo);
 
         return RedirectToAction("Quadrants");
     }
@@ -101,7 +99,7 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Delete(int id)
     {
-        var recordToDelete = _context.ToDoTasks
+        var recordToDelete = _repo.ToDoTasks
             .Include(t => t.Category)
             .Single(x => x.ToDoTaskId == id);
 
@@ -112,8 +110,7 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Delete(ToDoTask task)
     {
-        _context.ToDoTasks.Remove(task);
-        _context.SaveChanges();
+        _repo.DeleteTask(task);
 
         return RedirectToAction("Quadrants");
     }
@@ -122,11 +119,10 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Complete(int id)
     {
-        var record = _context.ToDoTasks.Single(x => x.ToDoTaskId == id);
+        var record = _repo.ToDoTasks.Single(x => x.ToDoTaskId == id);
         record.Completed = true;
 
-        _context.Update(record);
-        _context.SaveChanges();
+        _repo.UpdateTask(record);
 
         return RedirectToAction("Quadrants");
     }

@@ -11,4 +11,22 @@ public class EFQuadrantsRepository : IQuadrantsRepository
 
     public IQueryable<ToDoTask> ToDoTasks => _context.ToDoTasks;
     public IQueryable<Category> Categories => _context.Categories;
+
+    public void AddTask(ToDoTask task)
+    {
+        _context.ToDoTasks.Add(task);
+        _context.SaveChanges();
+    }
+
+    public void UpdateTask(ToDoTask task)
+    {
+        _context.ToDoTasks.Update(task);
+        _context.SaveChanges();
+    }
+
+    public void DeleteTask(ToDoTask task)
+    {
+        _context.ToDoTasks.Remove(task);
+        _context.SaveChanges();
+    }
 }

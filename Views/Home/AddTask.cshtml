@@ -1,51 +1,61 @@
-﻿@model Task
+﻿@model Mission08_Team0211.Models.ToDoTask
 
-<h1>Manage your tasks</h1>
+<h1 class="mb-4">Manage your tasks</h1>
 
-@model Mission08_Team0211.Models.ToDoTask
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
 
-<form method="post">
+            <input type="hidden" asp-for="ToDoTaskId" />
 
-    <input type="hidden" asp-for="ToDoTaskId" />
+            <div class="mb-3">
+                <label asp-for="Task" class="form-label"></label>
+                <input asp-for="Task" class="form-control" />
+                <span asp-validation-for="Task" class="text-danger"></span>
+            </div>
 
-    <label asp-for="Task"></label>
-    <input asp-for="Task" />
-    <br />
+            <div class="mb-3">
+                <label asp-for="DueDate" class="form-label"></label>
+                <input asp-for="DueDate" type="date" class="form-control" />
+                <span asp-validation-for="DueDate" class="text-danger"></span>
+            </div>
 
-    <label asp-for="DueDate"></label>
-    <input asp-for="DueDate" type="date" />
-    <br />
+            <div class="mb-3">
+                <label asp-for="Quadrant" class="form-label"></label>
+                <select asp-for="Quadrant" class="form-select">
+                    <option value="">Select a Quadrant</option>
+                    <option value="1">Quadrant I (Important / Urgent)</option>
+                    <option value="2">Quadrant II (Important / Not Urgent)</option>
+                    <option value="3">Quadrant III (Not Important / Urgent)</option>
+                    <option value="4">Quadrant IV (Not Important / Not Urgent)</option>
+                </select>
+                <span asp-validation-for="Quadrant" class="text-danger"></span>
+            </div>
 
-    <label asp-for="Quadrant"></label>
-    <select asp-for="Quadrant">
-        <option value="">Select a Quadrant</option>
-        <option value="1">Quadrant I (Important / Urgent)</option>
-        <option value="2">Quadrant II (Important / Not Urgent)</option>
-        <option value="3">Quadrant III (Not Important / Urgent)</option>
-        <option value="4">Quadrant IV (Not Important / Not Urgent)</option>
-    </select>
-    <br />
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="form-label">Category</label>
+                <select asp-for="CategoryId" class="form-select">
+                    <option value="">Select a Category</option>
+                    @foreach (var c in ViewBag.Categories)
+                    {
+                        <option value="@c.CategoryId">@c.CategoryName</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
 
-    <label asp-for="CategoryId"></label>
-    <select asp-for="CategoryId">
-        <option value="">Select a Category</option>
-        @foreach (var c in ViewBag.Categories)
-        {
-            <option value="@c.CategoryId">@c.CategoryName</option>
-        }
-    </select>
-    <br />
+            <div class="mb-3">
+                <label asp-for="Completed" class="form-label"></label>
+                <select asp-for="Completed" class="form-select">
+                    <option value="false">Not Completed</option>
+                    <option value="true">Completed</option>
+                </select>
+                <span asp-validation-for="Completed" class="text-danger"></span>
+            </div>
 
-    <label asp-for="Completed"></label>
-    <select asp-for="Completed">
-        <option value="">Select One</option>
-        <option value="true">Completed</option>
-        <option value="false">Not Completed</option>
-    </select>
-    <br />
-
-    <button type="submit">Save Task</button>
-
-    <div asp-validation-summary="All"></div>
-
-</form>
+            <button type="submit" class="btn btn-primary">Save Task</button>
+            <a asp-action="Quadrants" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

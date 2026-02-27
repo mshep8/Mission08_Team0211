@@ -29,7 +29,7 @@ public class QuadrantsContext : DbContext
             {
                 ToDoTaskId = 1,
                 Task = "Finish Mission 08 setup",
-                DueDate = new DateTime(2026, 2, 1),
+                DueDate = new DateTime(2026, 2, 1, 0, 0, 0, DateTimeKind.Utc),
                 Quadrant = 1,
                 CategoryId = 2,
                 Completed = false
@@ -38,7 +38,7 @@ public class QuadrantsContext : DbContext
             {
                 ToDoTaskId = 2,
                 Task = "Plan weekly schedule",
-                DueDate = new DateTime(2026, 2, 7),
+                DueDate = new DateTime(2026, 2, 7, 0, 0, 0, DateTimeKind.Utc),
                 Quadrant = 2,
                 CategoryId = 1,
                 Completed = false
